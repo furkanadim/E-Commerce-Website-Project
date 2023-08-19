@@ -3,7 +3,7 @@
 <p>I Developed an E-Commerce Project Using .NET MVC</p>
 
 <ul>
-  <span style="font-weight: bold;">Highlights of this website:</span>
+ Highlights of this website:
   <li>
     The Slide screen on the homepage can be changed with the help of the admin panel.
   </li>
