@@ -1,0 +1,108 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>E-Ticaret Projem Admin Paneli</title>
+
+    <!-- Bootstrap -->
+    <link href="/admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/admin/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="/admin/vendors/animate.css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/admin/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="login">
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+                    <form action="/admin/login" method="post">
+                        <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl"/>
+                        <h1>Giriş Yap</h1>
+                        <div>
+                            <input type="text" name="username" class="form-control" placeholder="Kullanıcı Adı" required="" />
+                        </div>
+                        <div>
+                            <input type="password" name="password" class="form-control" placeholder="Parola" required="" />
+                        </div>
+                        <div>
+                            <button class="btn btn-primary submit" type="submit">Giriş Yap</button>
+                            
+                        </div>
+                        <span style="color:red">@TempData["bilgi"]</span>
+                        <div class="clearfix"></div>
+
+                        <div class="separator">
+                            <p class="change_link">
+                                @*<a href="#signup" class="btn btn-primary to_register">Hesap Oluştur</a>*@
+                            </p>
+
+                            <div class="clearfix"></div>
+                            <br />
+
+                            <div>
+                                <h1>E-Ticaret Projem</h1>
+                            </div>
+                        </div>
+                        @Html.AntiForgeryToken()
+                    </form>
+                </section>
+            </div>
+
+            <div id="register" class="animate form registration_form">
+                <section class="login_content">
+                    <form>
+                        <h1>Hesap Oluştur</h1>
+                        <div>
+                            <input type="text" class="form-control" placeholder="Kullanıcı Adı" required="" />
+                        </div>
+                        <div>
+                            <input type="email" class="form-control" placeholder="Email" required="" />
+                        </div>
+                        <div>
+                            <input type="password" class="form-control" placeholder="Parola" required="" />
+                        </div>
+                        <div>
+                            <a class="btn btn-primary submit" href="index.html">Gönder</a>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="separator">
+                            <p class="change_link">
+                                Zaten kayıtlı mısınız?
+                                <a href="#signin" class="to_register">Giriş Yap </a>
+                            </p>
+
+                            <div class="clearfix"></div>
+                            <br />
+
+                            <div>
+                                <h1>E-Ticaret Projem</h1>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

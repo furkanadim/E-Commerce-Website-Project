@@ -1,0 +1,74 @@
+﻿@model ProductVM
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0"><a asp-controller="Home" asp-action="Index">Anasayfa</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Ürün Sayfası</strong></div>
+        </div>
+    </div>
+</div>
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                @if (Model.Product.ProductPictures.Any())
+                {
+                    <img src="@Model.Product.ProductPictures.FirstOrDefault().Picture" alt="@Model.Product.Name" class="img-fluid">
+                }
+                else
+                {
+                    <img src="/images/hazirlaniyor.jpg" alt="resim-hazirlaniyor" class="img-fluid">
+                }
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-black">@Model.Product.Name</h2>
+                <p>@Html.Raw(@Model.Product.Detail)</p>
+                
+                <p style="color :black; font-size: 30px; font-weight: bold;"><strong>@Model.Product.Price TL</strong></p>
+                <p class="p-stock">
+                    @if (Model.Product.Stock > 0)
+                    {
+                        <span style="color:#3BAF52; font-size:23px; font-weight: bold;">Stokta Var</span>
+                        @if (Model.Product.Stock < 20)
+                        {
+                            <span style="color:darkorange; font-size:18px; margin-left: 30px;">Son @Model.Product.Stock Ürün</span>
+                        }
+                    }
+                    else
+                    {
+                        <span style="color:red; font-size:23px; font-weight: bold;">Tükendi</span>
+                    }
+                </p>
+                <select class="form-select form-select-sm" aria-label="Small select example">
+                    <option selected>Numara Seçiniz</option>
+                    <option value="1">38</option>
+                    <option value="2">39</option>
+                    <option value="3">41</option>
+                    <option value="3">42</option>
+                    <option value="3">43</option>
+                    <option value="3">44</option>
+                    <option value="3">45</option>
+                    <option value="3">45.5</option>
+                </select>
+                <div>
+                    <p style="font-weight:bold;">Miktar</p>
+                    <input style="margin-bottom: 20px;" class="inputQuantity" type="number" value="1" min="1" max="5">
+                </div>
+                <button style="width: 565px; font-weight:bold; background-color: black;" onclick="addCart(@Model.Product.ID, @Model.Product.Stock)" class="buy-now btn btn-sm btn-success">Sepete Ekle</button>
+                    <p>@Html.Raw(@Model.Product.CargoDetail)</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalSepet" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+        </div>
+    </div>
+</div>
+

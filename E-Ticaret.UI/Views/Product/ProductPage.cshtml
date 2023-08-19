@@ -1,0 +1,161 @@
+﻿@model IndexVM
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0"><a asp-controller="Home" asp-action="Index">Anasayfa</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Ürünler</strong></div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container">
+
+        <div class="row mb-5">
+            <div class="col-md-9 order-2">
+
+                <div class="row">
+                    <div class="col-md-12 mb-5">
+                        <div class="float-md-left mb-4"><h2 class="text-black h5">Ürünler</h2></div>
+                        <div class="d-flex">
+                            <div class="dropdown mr-1 ml-md-auto">
+                                <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Filtrele
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Erkek</a>
+                                    <a class="dropdown-item" href="#">Kadın</a>
+                                    <a class="dropdown-item" href="#">Çocuk</a>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Sırala</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                                    <a class="dropdown-item" href="#">Sırala</a>
+                                    <a class="dropdown-item" href="#">A'dan Z'ye sırala</a>
+                                    <a class="dropdown-item" href="#">Z'den A'ya sırala</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Fiyat: Düşükten Yükseğe</a>
+                                    <a class="dropdown-item" href="#">Fiyat: Yüksekten Düşüğe</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    @foreach (Product p in Model.Products)
+                    {
+                        <div class="col-lg-4">
+                            <partial name="_Product" model="p" />
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-3 order-1 mb-5 mb-md-0">
+                <div class="border p-4 rounded mb-4">
+                    <h3 class="mb-3 h6 text-uppercase text-black d-block">Kategoriler</h3>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1"><a href="#" class="d-flex"><span>Erkek</span></a></li>
+                        <li class="mb-1"><a href="#" class="d-flex"><span>Kadın</span></a></li>
+                        <li class="mb-1"><a href="#" class="d-flex"><span>Çocuk</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="border p-4 rounded mb-4">
+                   
+
+                    <div class="mb-4">
+                        <h3 class="mb-3 h6 text-black d-block">Ayakkabı Numarası</h3>
+                        <label for="s_sm" class="d-flex">
+                            <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">39</span>
+                        </label>
+                        <label for="s_md" class="d-flex">
+                            <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">40</span>
+                        </label>
+                        <label for="s_lg" class="d-flex">
+                            <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">41</span>
+                        </label>
+                        <label for="s_lg" class="d-flex">
+                            <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">42</span>
+                        </label>
+                        <label for="s_lg" class="d-flex">
+                            <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">43</span>
+                        </label>
+                        <label for="s_lg" class="d-flex">
+                            <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">44</span>
+                        </label>
+                        <label for="s_lg" class="d-flex">
+                            <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">45</span>
+                        </label>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="mb-3 h6 text-uppercase text-black d-block">Renk</h3>
+                        <a href="#" class="d-flex color-item align-items-center">
+                            <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Kırmızı</span>
+                        </a>
+                        <a href="#" class="d-flex color-item align-items-center">
+                            <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Yeşil</span>
+                        </a>
+                        <a href="#" class="d-flex color-item align-items-center">
+                            <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Mavi</span>
+                        </a>
+                        <a href="#" class="d-flex color-item align-items-center">
+                            <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Mor</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="site-section site-blocks-2">
+                    <div class="row justify-content-center text-center mb-5">
+                        <div class="col-md-7 site-section-heading pt-4">
+                            <h2>Kategoriler</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
+                            <a class="block-2-item" href="#">
+                                <figure class="image">
+                                    <img src="/images/kadin.webp" alt="" class="img-fluid">
+                                </figure>
+                                <div class="text">
+                                    <span class="text-uppercase">Koleksiyonlar</span>
+                                    <h3>Kadın</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                            <a class="block-2-item" href="#">
+                                <figure class="image">
+                                    <img src="/images/cocuk.webp" alt="" class="img-fluid">
+                                </figure>
+                                <div class="text">
+                                    <span class="text-uppercase">Koleksiyonlar</span>
+                                    <h3>Çocuk</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+                            <a class="block-2-item" href="#">
+                                <figure class="image">
+                                    <img src="/images/erkek.webp" alt="" class="img-fluid">
+                                </figure>
+                                <div class="text">
+                                    <span class="text-uppercase">Koleksiyonlar</span>
+                                    <h3>Erkek</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

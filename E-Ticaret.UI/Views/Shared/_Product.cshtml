@@ -1,0 +1,20 @@
+﻿@model Product
+<div class="item">
+    <div class="block-4 text-center">
+        <figure class="block-4-image">
+            @if (Model.ProductPictures.Any())
+            {
+                <img src="@Model.ProductPictures.FirstOrDefault().Picture" alt="@Model.Name" class="img-fluid">
+            }
+            else
+            {
+                <img src="/images/hazirlaniyor.jpg" alt="hazirlaniyor" class="img-fluid">
+            }
+        </figure>
+        <div class="block-4-text p-4">
+            <h3 style="margin-bottom: 10px; font-size: 17px;"><a href="#" style="color: black;">@Model.Name</a></h3>
+            <h3 style="margin-bottom: 10px; color: black; font-weight:bold; font-size: 25px;">@Model.Price TL</h3>
+            <a asp-controller="Product" asp-action="Detail" asp-route-name="@GeneralTools.GetUrl(Model.Name)" asp-route-id="@Model.ID" type="button" class="btn btn-primary" style="font-weight: bold; margin-top: 25px;">Satın AL</a>
+        </div>
+    </div>
+</div>

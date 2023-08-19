@@ -1,0 +1,57 @@
+﻿@model CategoryVM
+<div class="right_col" role="main">
+	<div class="">
+		<div class="page-title">
+			<div class="title_left">
+				<h3>Kategori Düzenle</h3>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div class="row">
+		<div class="col-md-12 col-sm-12 ">
+			<div class="x_panel">
+				<div class="x_content">
+					<br />
+					<form asp-controller="Category" asp-action="Edit" method="post" data-parsley-validate class="form-horizontal form-label-left">
+						<input type="hidden" asp-for="@Model.Category.ID" />
+						<div class="item form-group">
+							<label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Category.Name"></label>
+							<div class="col-md-6 col-sm-6 ">
+								<input class="form-control" asp-for="@Model.Category.Name">
+								<span asp-validation-for="@Model.Category.Name"></span>
+							</div>
+						</div>
+
+						<div class="item form-group">
+							<label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Category.DisplayIndex"></label>
+							<div class="col-md-6 col-sm-6 ">
+								<input asp-for="@Model.Category.DisplayIndex" class="form-control">
+								<span asp-validation-for="@Model.Category.DisplayIndex"></span>
+							</div>
+						</div>
+
+						<div class="item form-group">
+							<label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Category.DisplayIndex"></label>
+							<div class="col-md-6 col-sm-6 ">
+								<input asp-for="@Model.Category.DisplayIndex" class="form-control">
+								<span asp-validation-for="@Model.Category.DisplayIndex"></span>
+							</div>
+						</div>
+
+						<div class="ln_solid"></div>
+						<div class="item form-group">
+							<div class="col-md-6 col-sm-6 offset-md-3">
+								<button asp-controller="Category" asp-action="Index" class="btn btn-primary">İptal Et</button>
+								<button class="btn btn-primary" type="reset">Temizle</button>
+								<button type="submit" class="btn btn-success">Düzenle</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

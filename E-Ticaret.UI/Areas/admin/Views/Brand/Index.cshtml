@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Brand>
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+
+        <div class="row" style="display: block;">
+            <div class="col-md-12 col-sm-12  ">
+                <div class="x_panel">
+                    <div class="col-md-6 col-sm-6">
+                        <h2>Marka Yönetimi</h2>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <a asp-controller="Brand" asp-action="New" class="btn btn-success float-right" style="color:#fff">Yeni Marka</a>
+                    </div>
+                    <div class="x_content">
+                        <div class="table-responsive">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">Marka Düzenle</th>
+                                        <th class="column-title">Marka Adı </th>
+                                        <th class="column-title">Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        @foreach (Brand s in Model)
+                                        {
+                                        <tr class="even pointer">
+                                            <td><a type="button" class="btn btn-primary btn-sm" asp-controller="Brand" asp-action="Edit" asp-route-id="@s.ID">Düzenle</a></td>
+                                            <td class=" ">@s.Name</td>
+                                            <td><a type="button" class="btn btn-danger btn-sm"  asp-controller="Brand" asp-action="Delete" asp-route-id="@s.ID">Sil</a></td>
+                                        </tr>
+                                        }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+﻿@model List<Cart>
+
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0"><a asp-controller="Home" asp-action="Index">Anasayfa</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Sepet</strong></div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <form class="col-md-12" method="post">
+                <div class="site-blocks-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="product-thumbnail">Ürün Görseli</th>
+                                <th class="product-name">Ürün</th>
+                                <th class="product-price">Fiyat</th>
+                                <th class="product-quantity">Adet</th>
+                                <th class="product-total">Toplam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                @foreach (Cart c in Model)
+                                {
+                                <tr>
+                                    <td class="product-thumbnail">
+                                        <img src="@c.ProductPicture" alt="@c.ProductName" class="img-fluid">
+                                    </td>
+                                    <td class="product-name">
+                                        <h2 class="h5 text-black">@c.ProductName</h2>
+                                    </td>
+                                    <td>@c.ProductPrice TL</td>
+                                    <td>
+                                        <div class="input-group mb-3" style="max-width: 70px; margin-left: 20px;">
+                                            <h5 style="margin-left: 20px; margin-top: 20px;">@c.Quantity</h5>
+                                        </div>
+
+                                    </td>
+
+                                    <td>@(c.ProductPrice * c.Quantity) TL</td>
+                                </tr>
+                                }
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="text-black h4" for="coupon">Kupon</label>
+                        <p>Kupon kodunuz varsa burada kullanabilirsiniz.</p>
+                    </div>
+                    <div class="col-md-8 mb-3 mb-md-0">
+                        <input type="text" class="form-control py-3" id="coupon" placeholder="Kupon Kodu">
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary btn-sm">Onayla</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 pl-5">
+                <div class="row justify-content-end">
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12 text-right border-bottom mb-5">
+                                <h3 class="text-black h4 text-uppercase">Sepet Toplamı</h3>
+                            </div>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col-md-6">
+                                <span class="text-black">Toplam</span>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <strong class="text-black">@(Model.Sum(x => x.Quantity * x.ProductPrice)) TL</strong>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a asp-controller="Cart" asp-action="CheckOut" class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Alışverişi Tamamla</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

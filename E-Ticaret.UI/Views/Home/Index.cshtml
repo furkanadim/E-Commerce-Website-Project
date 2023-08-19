@@ -1,0 +1,146 @@
+﻿@model IndexVM
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Slide Navigasyon Düğmeleri -->
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Önceki</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Sonraki</span>
+    </a>
+
+    <div class="carousel-inner">
+        @foreach (Slide s in Model.Slides)
+        {
+            <div class="carousel-item">
+                
+                <div class="site-blocks-cover" style="background-image: url('@s.Picture');" data-aos="fade">
+                    <h1 style="color: white; margin-top: -330px;">@s.Slogan</h1>
+                    <div class="container">
+                        <div class="row align-items-start align-items-md-center justify-content-end">
+                            <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
+                                <h2 style="color: white;">@s.Title</h2>
+                                <p class="mb-4" style="color: white;">@s.Description</p>
+                                <h2 style="color: white;">@s.Price TL</h2>
+                                <a href="#@s.Link" class="btn btn-sm btn-primary" style="font-weight: bold;">Satın AL</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    </div>
+
+<div class="site-section site-section-sm site-blocks-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
+                <div class="icon mr-4 align-self-start">
+                    <span class="icon-truck"></span>
+                </div>
+                <div class="text">
+                    <h2 class="text-uppercase">Ücretsiz Kargo!</h2>
+                    <p>Alışveriş keyfinizi katlayın! Tüm ürünlerde ücretsiz kargo fırsatıyla sizlere hızlı ve güvenli teslimat sağlıyoruz. Siparişlerinizi rahatlıkla verebilir, istediğiniz ürünleri kapınıza getirtmenin avantajını yaşayabilirsiniz. 🚚🎁</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon mr-4 align-self-start">
+                    <span class="icon-refresh2"></span>
+                </div>
+                <div class="text">
+                    <h2 class="text-uppercase">Koşulsuz İade</h2>
+                    <p>Mutluluğunuz ön planda! Koşulsuz iade avantajıyla alışverişlerinizde risk yok. Memnun kalmadığınız ürünleri kolayca iade edin, huzurla alışveriş yapın. 🛍️✨.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon mr-4 align-self-start">
+                    <span class="icon-help"></span>
+                </div>
+                <div class="text">
+                    <h2 class="text-uppercase">Müşteri Desteği</h2>
+                    <p>Sizin için buradayız! Müşteri desteğimiz 7/24 hizmetinizde. Her sorunuzu çözmek, her ihtiyacınıza yanıt vermek için buradayız. Size destek olmaktan mutluluk duyarız. 🤝🕐</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section site-blocks-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
+                <a class="block-2-item" href="#">
+                    <figure class="image">
+                        <img src="/images/kadin.webp" alt="" class="img-fluid">
+                    </figure>
+                    <div class="text">
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                <a class="block-2-item" href="#">
+                    <figure class="image">
+                        <img src="/images/cocuk.webp" alt="" class="img-fluid">
+                    </figure>
+                    <div class="text">
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+                <a class="block-2-item" href="#">
+                    <figure class="image">
+                        <img src="/images/erkek.webp" alt="" class="img-fluid">
+                    </figure>
+                    <div class="text">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section block-3 site-blocks-2 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 site-section-heading text-center pt-4">
+                <h2>Öne Çıkan Ürünler</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nonloop-block-3 owl-carousel">
+                    @foreach (Product p in Model.Products)
+                    {
+                        <partial name="_Product" model="p" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="site-section block-8">
+    <div class="container">
+        <div class="row justify-content-center  mb-5">
+            <div class="col-md-7 site-section-heading text-center pt-4">
+                <h2>Premium Ayakkabıların İzindeyiz!</h2>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-12 col-lg-7 mb-5">
+                <a href="#"><img src="/images/indirim.jpg" alt="Image placeholder" class="img-fluid rounded"></a>
+            </div>
+            <div class="col-md-12 col-lg-5 text-center pl-md-5">
+                <h2><a href="#"></a></h2>
+                <p>Günümüzün hızlı tempolu dünyasında, tarz sahibi olmak ve fark yaratmak isteyenler için premium ayakkabılar sadece birer aksesuardan daha fazlasını ifade ediyor. Bu ayakkabılar, benzersiz tasarımları, üstün kaliteleri ve sınırlı sayıdaki üretimleriyle adeta birer sanat eseri haline geliyor. İşte tam da bu nedenle, premium ayakkabılar sıradan ayakkabılar arasında göz alıcı bir varlık olarak parlıyor.</p>
+                <p>
+                    Premium ayakkabıları özel kılan özelliklerden biri, stoğunun sınırlı olmasıdır. Üreticiler, bu ayakkabıları özenle tasarlar ve dikkatlice üretirler, bu da otomatik olarak stoğun az olmasına neden olur. Her bir çift, ustaların emeği ve zanaatkarlığının bir ürünüdür. Bu nedenle, premium ayakkabı sahipleri, gerçek birer sanat eseri taşıdıklarını hissederler.
+                </p>
+                <p><a href="#" class="btn btn-primary btn-sm" style="font-weight: bold;">Alışveriş Yap</a></p>
+            </div>
+        </div>
+    </div>
+</div>
