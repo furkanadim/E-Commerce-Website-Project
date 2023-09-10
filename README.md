@@ -24,7 +24,7 @@
   </li>
 </ul>
 
-
+<p>Admin panel id: furkan pw: 123</p>
 <p>I'll be reporting here when more features are added!</p>
 
 <h2>Thank You!</h2>
